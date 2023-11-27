@@ -1,49 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://donlhfi4ptthd"]
+[gd_scene load_steps=8 format=3 uid="uid://donlhfi4ptthd"]
 
-[ext_resource type="Texture2D" uid="uid://rudhitu0fqmg" path="res://Untitled.png" id="1_pjtas"]
-[ext_resource type="Texture2D" uid="uid://bwjnjkddn0554" path="res://Walls_1.png" id="2_hiscn"]
-[ext_resource type="Texture2D" uid="uid://c1rlxg034d22u" path="res://PlayerPlateau_1.png" id="3_tj6m1"]
+[ext_resource type="Texture2D" uid="uid://rudhitu0fqmg" path="res://Sprites/Untitled.png" id="1_nt7x8"]
+[ext_resource type="Texture2D" uid="uid://bwjnjkddn0554" path="res://Sprites/Walls_1.png" id="2_hnr1i"]
+[ext_resource type="PackedScene" uid="uid://c3cq3bi2jsd58" path="res://scenes/Player_1.tscn" id="3_msy2a"]
+[ext_resource type="PackedScene" uid="uid://dr73r12m4nh24" path="res://scenes/Player_2.tscn" id="4_75lm4"]
+[ext_resource type="PackedScene" uid="uid://dp5ymy4xo128o" path="res://scenes/ball.tscn" id="5_1affs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gfw7"]
-texture = ExtResource("2_hiscn")
+texture = ExtResource("2_hnr1i")
 0:0/next_alternative_id = 4
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/1 = 1
 0:0/1/flip_v = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/next_alternative_id = 3
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/2 = 2
 1:0/2/flip_v = true
+1:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/2/physics_layer_0/angular_velocity = 0.0
+1:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/next_alternative_id = 3
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/2 = 2
 2:0/2/flip_v = true
+2:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/2/physics_layer_0/angular_velocity = 0.0
+2:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_e6oms"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4gfw7")
 
 [node name="Node" type="Node"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_pjtas")
+texture = ExtResource("1_nt7x8")
 expand_mode = 1
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Walls" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_e6oms")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 65536, 0, 19, 65536, 0, 20, 65536, 0, 21, 65536, 0, 22, 65536, 0, 23, 65536, 0, 24, 65536, 0, 25, 65536, 0, 26, 65536, 0, 27, 65536, 0, 28, 65536, 0, 29, 131072, 0, 1048576, 0, 65536, 1048577, 65536, 131072, 1048578, 65536, 131072, 1048579, 65536, 131072, 1048580, 65536, 131072, 1048581, 65536, 131072, 1048582, 65536, 131072, 1048583, 65536, 131072, 1048584, 65536, 131072, 1048585, 65536, 131072, 1048586, 65536, 131072, 1048587, 65536, 131072, 1048588, 65536, 131072, 1048589, 65536, 131072, 1048590, 65536, 131072, 1048591, 65536, 131072, 1048592, 65536, 131072, 1048593, 65536, 131072, 1048594, 65536, 131072, 1048595, 65536, 131072, 1048596, 65536, 131072, 1048597, 65536, 131072, 1048598, 65536, 131072, 1048599, 65536, 131072, 1048600, 65536, 131072, 1048601, 65536, 131072, 1048602, 65536, 131072, 1048603, 65536, 131072, 1048604, 65536, 131072, 1048605, 131072, 131072)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player_1" parent="." instance=ExtResource("3_msy2a")]
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(37, 542)
-scale = Vector2(2.43333, 2.70312)
-texture = ExtResource("3_tj6m1")
+[node name="Player_2" parent="." instance=ExtResource("4_75lm4")]
+
+[node name="Ball" parent="." instance=ExtResource("5_1affs")]
+position = Vector2(-6, 3)

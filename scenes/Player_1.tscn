@@ -1,16 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3cq3bi2jsd58"]
+[gd_scene load_steps=4 format=3 uid="uid://c3cq3bi2jsd58"]
 
-[ext_resource type="Texture2D" uid="uid://c1rlxg034d22u" path="res://PlayerPlateau_1.png" id="1_q0xxo"]
+[ext_resource type="Script" path="res://Scripts/Player_1.gd" id="1_r1a0x"]
+[ext_resource type="Texture2D" uid="uid://c1rlxg034d22u" path="res://Sprites/PlayerPlateau_1.png" id="2_yij51"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k57m4"]
 height = 194.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_r1a0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(64, 544)
 scale = Vector2(3, 3)
-texture = ExtResource("1_q0xxo")
+texture = ExtResource("2_yij51")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(64, 544)
