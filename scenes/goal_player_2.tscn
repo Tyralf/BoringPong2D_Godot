@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyb5dc0p5bvy6"]
+
+[ext_resource type="Script" path="res://scenes/goal_player_2.gd" id="1_qfp3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbu1y"]
+size = Vector2(99, 951)
+
+[node name="Goal_Player_2" type="Area2D"]
+script = ExtResource("1_qfp3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48.5, 553.5)
+shape = SubResource("RectangleShape2D_vbu1y")
+
+[node name="Score_P2" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 64.0
+offset_bottom = 45.0
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
