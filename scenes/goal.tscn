@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://beo0qead0qnca"]
+
+[sub_resource type="GDScript" id="GDScript_upepu"]
+script/source = "extends Area2D
+var p2_score = 0
+func _on_body_entered(body):
+	print(body.name,\"has entered goal of player 1\")
+	if body.name == \"Ball\":
+		print(\"Player 2 Goalllll !\")
+		p2_score += 1
+		get_node(\"/root/Node/ScoreBoard/score_p2\").text = str(p2_score)
+		if p2_score < 10:
+			body.reset()
+		else:
+			get_tree().quit()
+ 
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt67t"]
+size = Vector2(80, 947)
+
+[node name="Goal" type="Area2D"]
+script = SubResource("GDScript_upepu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 545.5)
+shape = SubResource("RectangleShape2D_nt67t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

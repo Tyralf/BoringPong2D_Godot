@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://donlhfi4ptthd"]
+[gd_scene load_steps=11 format=3 uid="uid://donlhfi4ptthd"]
 
 [ext_resource type="Texture2D" uid="uid://rudhitu0fqmg" path="res://Sprites/Untitled.png" id="1_nt7x8"]
 [ext_resource type="Texture2D" uid="uid://bwjnjkddn0554" path="res://Sprites/Walls_1.png" id="2_hnr1i"]
 [ext_resource type="PackedScene" uid="uid://c3cq3bi2jsd58" path="res://scenes/Player_1.tscn" id="3_msy2a"]
 [ext_resource type="PackedScene" uid="uid://dr73r12m4nh24" path="res://scenes/Player_2.tscn" id="4_75lm4"]
 [ext_resource type="PackedScene" uid="uid://dp5ymy4xo128o" path="res://scenes/ball.tscn" id="5_1affs"]
-[ext_resource type="PackedScene" uid="uid://beo0qead0qnca" path="res://scenes/goal_player_1.tscn" id="6_5a5u3"]
-[ext_resource type="PackedScene" uid="uid://dyb5dc0p5bvy6" path="res://scenes/goal_player_2.tscn" id="7_lmbvl"]
+[ext_resource type="PackedScene" uid="uid://beo0qead0qnca" path="res://scenes/goal.tscn" id="6_5a5u3"]
+[ext_resource type="Script" path="res://Scripts/goal.gd" id="7_64j0b"]
+[ext_resource type="PackedScene" uid="uid://duvqctsrsstsj" path="res://scenes/grid_container.tscn" id="8_4ll7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gfw7"]
 texture = ExtResource("2_hnr1i")
@@ -73,8 +74,14 @@ position = Vector2(-64, 0)
 [node name="Ball" parent="." instance=ExtResource("5_1affs")]
 position = Vector2(-6, 3)
 
-[node name="Goal_Player_1" parent="." instance=ExtResource("6_5a5u3")]
-position = Vector2(-1, 11)
+[node name="ScoreBoard" parent="." instance=ExtResource("8_4ll7l")]
 
-[node name="Goal_Player_2" parent="." instance=ExtResource("7_lmbvl")]
-position = Vector2(1838, -9)
+[node name="Goal_P1" parent="." instance=ExtResource("6_5a5u3")]
+position = Vector2(3, -2)
+script = ExtResource("7_64j0b")
+ScoreLabel = "score_p2"
+
+[node name="Goal_P2" parent="." instance=ExtResource("6_5a5u3")]
+position = Vector2(1837, -6)
+script = ExtResource("7_64j0b")
+ScoreLabel = "score_p1"
