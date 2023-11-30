@@ -7,8 +7,8 @@ const SCOREPATH = "/root/Node/ScoreBoard/"
 
 func _on_body_entered(body):
 	if body.name == "Ball":
+		incrementScore()
 		if score < 10:
-			incrementScore()
 			body.reset()
 		else:
 			get_tree().quit()

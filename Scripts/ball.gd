@@ -11,4 +11,4 @@ func _process(delta):
 	if collision_info:
 		velocity = velocity.bounce(collision_info.get_normal())
 func reset():
-	position = Vector2(0,0)
+	position = Vector2(960,540)
