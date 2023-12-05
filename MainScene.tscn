@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://donlhfi4ptthd"]
+[gd_scene load_steps=10 format=3 uid="uid://donlhfi4ptthd"]
 
 [ext_resource type="Texture2D" uid="uid://i2e2e6bs5u3g" path="res://Sprites/2.png" id="1_wnr34"]
 [ext_resource type="PackedScene" uid="uid://dp5ymy4xo128o" path="res://scenes/ball.tscn" id="5_1affs"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cgctrjaie1uy8" path="res://scenes/Walls.tscn" id="7_0bqhi"]
 [ext_resource type="Script" path="res://Scripts/goal.gd" id="7_64j0b"]
 [ext_resource type="PackedScene" uid="uid://c3cq3bi2jsd58" path="res://scenes/Player.tscn" id="7_ghry4"]
-[ext_resource type="PackedScene" uid="uid://duvqctsrsstsj" path="res://scenes/ScoreBoard.tscn" id="8_4ll7l"]
+[ext_resource type="PackedScene" uid="uid://cjf5yiha2a86v" path="res://scenes/ScoreBoard.tscn" id="7_kfyvg"]
+[ext_resource type="AudioStream" uid="uid://cm88mpcxcbpul" path="res://Music/SongPong2.mp3" id="8_8rotl"]
+[ext_resource type="PackedScene" uid="uid://dbkklwuo4iifo" path="res://scenes/pause_menu.tscn" id="9_xicxs"]
 
 [node name="Node" type="Node"]
 
@@ -20,22 +22,18 @@ grow_vertical = 2
 texture = ExtResource("1_wnr34")
 
 [node name="Ball" parent="." instance=ExtResource("5_1affs")]
-position = Vector2(964, 546)
-
-[node name="ScoreBoard" parent="." instance=ExtResource("8_4ll7l")]
-offset_left = -62.0
-offset_top = -116.504
-offset_right = 66.0
-offset_bottom = -65.504
+position = Vector2(960, 540)
 
 [node name="Goal_P1" parent="." instance=ExtResource("6_5a5u3")]
+position = Vector2(-79, 0)
 script = ExtResource("7_64j0b")
-ScoreLabel = "m2/score_p2"
+ScoreLabel = "score_p2"
 
 [node name="Goal_P2" parent="." instance=ExtResource("6_5a5u3")]
-position = Vector2(1839, 0)
+position = Vector2(1998, 1081)
+rotation = 3.14159
 script = ExtResource("7_64j0b")
-ScoreLabel = "m1/score_p1"
+ScoreLabel = "score_p1"
 
 [node name="Player_1" parent="." instance=ExtResource("7_ghry4")]
 position = Vector2(100, 540)
@@ -50,3 +48,11 @@ BindDown = "Player_2_down"
 [node name="StaticBody2D" parent="." instance=ExtResource("7_0bqhi")]
 position = Vector2(1920, 1080)
 rotation = 3.14159
+
+[node name="ScoreBoard" parent="." instance=ExtResource("7_kfyvg")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8rotl")
+autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_xicxs")]

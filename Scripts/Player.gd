@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var speed = 10.0
+@export var speed = 20.0
 @export var BindUp = "Player_1_up"
 @export var BindDown = "Player_1_down"
 

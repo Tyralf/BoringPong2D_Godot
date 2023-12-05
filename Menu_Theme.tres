@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dcl8xfw4qgxhg"]
+
+[ext_resource type="FontFile" uid="uid://cgiofv8e3qor1" path="res://GlacialIndifference-Regular.otf" id="1_4e21x"]
+[ext_resource type="Texture2D" uid="uid://uuh860kvxfxn" path="res://Sprites/Button background.png" id="1_df1b8"]
+
+[resource]
+default_font = ExtResource("1_4e21x")
+default_font_size = 40
+Buttons/icons/Buttons = ExtResource("1_df1b8")
+Label/fonts/font = ExtResource("1_4e21x")

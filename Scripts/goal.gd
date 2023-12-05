@@ -9,6 +9,8 @@ func _on_body_entered(body):
 	if body.name == "Ball":
 		incrementScore()
 		if score < 10:
+			get_node("GoalAnim").emitting = true
+			get_node("GoalSfx").play()
 			body.reset()
 		else:
 			get_tree().quit()
