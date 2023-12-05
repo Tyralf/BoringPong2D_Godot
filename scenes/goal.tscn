@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://beo0qead0qnca"]
+
+[ext_resource type="Texture2D" uid="uid://bc0f6qfav2k3d" path="res://Sprites/ball.png" id="1_ptubq"]
+[ext_resource type="AudioStream" uid="uid://byghvk8h6c0ik" path="res://Music/mixkit-casino-bling-achievement-2067.wav" id="2_yq7fi"]
+
+[sub_resource type="GDScript" id="GDScript_upepu"]
+script/source = "extends Area2D
+var p2_score = 0
+
+
+func _on_body_entered(body):
+	print(body.name,\"has entered goal of player 1\")
+	if body.name == \"Ball\":
+		print(\"Player 2 Goalllll !\")
+		p2_score += 1
+		get_node(\"/root/Node/ScoreBoard/score_p2\").text = str(p2_score)
+		if p2_score < 10:
+			body.reset()
+		else:
+			get_tree().quit()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt67t"]
+size = Vector2(80, 810)
+
+[sub_resource type="Gradient" id="Gradient_clvhu"]
+offsets = PackedFloat32Array(0, 0.557047, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.878431, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lwx1q"]
+gradient = SubResource("Gradient_clvhu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2t44"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 400, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 58.82
+initial_velocity_max = 88.23
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_lwx1q")
+
+[node name="Goal" type="Area2D"]
+script = SubResource("GDScript_upepu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 540)
+shape = SubResource("RectangleShape2D_nt67t")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(79, 540)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_x2t44")
+texture = ExtResource("1_ptubq")
+
+[node name="GoalAnim" type="GPUParticles2D" parent="."]
+position = Vector2(79, 540)
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_x2t44")
+texture = ExtResource("1_ptubq")
+lifetime = 1.2
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.3
+
+[node name="GoalSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yq7fi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
