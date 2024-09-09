@@ -16,21 +16,24 @@ Bienvenue dans **Pong 2D**, un jeu classique de pong recréé en 2D avec le mote
 
 ## 📦 Installation
 
+**Remarque : Ce jeu nécessite le moteur Godot pour être lancé et joué. Ce projet a été développé à des fins d'apprentissage et n'est pas déployé.**
+
 1. Clonez le repository :
 
    ```bash
-   git clone https://github.com/votreutilisateur/pong-2d.git
+   git clone https://github.com/Tyralf/BoringPong2D_Godot.git
    
 2. Ouvrez le projet avec Godot Engine.
 3. Lancez le jeu depuis l'éditeur.
 
 ## 🎮 Contrôles
 
-**Joueur 1 :** Utilisez les touches W (haut) et S (bas) pour contrôler votre paddle.
-**Joueur 2 :** Utilisez les flèches Haut et Bas pour contrôler votre paddle.
+**Joueur 1 :** Utilisez les touches Z (haut) et S (bas) pour contrôler votre plateau.
+**Joueur 2 :** Utilisez les flèches Haut et Bas pour contrôler votre plateau.
 **Pause :** Appuyez sur Echap pour mettre en pause le jeu.
 
 ## 🖼️ Aperçu
+![PongCover](https://github.com/user-attachments/assets/aac71aab-fedc-410b-95a9-8db02caffe86)
 
 
 ## 📬 Contact
