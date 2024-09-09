@@ -29,7 +29,9 @@ Bienvenue dans **Pong 2D**, un jeu classique de pong recréé en 2D avec le mote
 ## 🎮 Contrôles
 
 **Joueur 1 :** Utilisez les touches Z (haut) et S (bas) pour contrôler votre plateau.
+
 **Joueur 2 :** Utilisez les flèches Haut et Bas pour contrôler votre plateau.
+
 **Pause :** Appuyez sur Echap pour mettre en pause le jeu.
 
 ## 🖼️ Aperçu
